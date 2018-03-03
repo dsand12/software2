@@ -1,0 +1,39 @@
+package javaapplication4;
+import java.util.Arrays;
+public class JavaApplication4 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int [] Lista={0,1,2,3,4,5,6,7,8,9,10};
+        /*int[] Lista = new int[10];
+        for (int x=0;x<Lista.length;x++){
+        Lista[x] = (int) (Math.random()*15);
+        }*/
+        System.out.println("Vector: "+Arrays.toString(Lista));
+        System.out.println("Posicion del numero Buscado en el vector : ["+BusqueBin(Lista)+"]");
+ }
+    
+ public static int BusqueBin(int Lista[]){
+     int llave=7;
+     int xmin=0;
+     int xmax=10;    
+     int resp=-1;
+   while(xmin<xmax-1){
+     int ix=(xmax+xmin)/2;
+     if(Lista[ix]==llave) {
+         resp=ix;
+         xmin=ix;
+         xmax=ix;
+     }else if(llave < Lista[ix] ){
+        xmax=ix;
+     }
+     else {
+       xmin=ix;
+     }
+   }
+   return resp;
+ }
+}
